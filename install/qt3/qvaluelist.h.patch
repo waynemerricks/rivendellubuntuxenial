@@ -1,0 +1,12 @@
+--- /usr/local/qt3/include/qvaluelist.h	2008-01-15 19:09:13.000000000 +0000
++++ qvaluelist.h	2016-05-18 12:42:05.746414064 +0100
+@@ -52,6 +52,9 @@
+ #include <list>
+ #endif
+ 
++//BUG FIX Ubuntu requires stddef
++#include <stddef.h>
++
+ //#define QT_CHECK_VALUELIST_RANGE
+ 
+ #if defined(Q_CC_MSVC)

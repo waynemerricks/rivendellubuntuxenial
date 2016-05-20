@@ -1,0 +1,13 @@
+[Unit]
+Description=Rivendell Radio Automation ripcd Service
+Requires=caed.service
+After=caed.service
+
+[Service]
+Type=forking
+ExecStart=/usr/local/bin/ripcd
+PIDFile=/var/run/rivendell/ripcd.pid
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target

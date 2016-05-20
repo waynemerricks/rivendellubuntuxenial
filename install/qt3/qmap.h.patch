@@ -1,0 +1,12 @@
+--- /usr/local/qt3/include/qmap.h	2008-01-15 19:09:13.000000000 +0000
++++ qmap.h	2016-05-18 12:41:38.689857719 +0100
+@@ -54,6 +54,9 @@
+ #include <map>
+ #endif
+ 
++//BUG FIX Ubuntu requires stddef
++#include <stddef.h>
++
+ //#define QT_CHECK_MAP_RANGE
+ 
+ struct Q_EXPORT QMapNodeBase

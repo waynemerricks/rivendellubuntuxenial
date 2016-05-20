@@ -1,0 +1,13 @@
+[Unit]
+Description=Rivendell Radio Automation rdcatchd Service
+Requires=ripcd.service
+After=ripcd.service
+
+[Service]
+Type=forking
+ExecStart=/usr/local/bin/rdcatchd
+PIDFile=/var/run/rivendell/rdcatchd.pid
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target

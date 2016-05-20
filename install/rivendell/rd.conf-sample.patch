@@ -1,0 +1,21 @@
+--- rd.conf-sample	2016-04-14 12:44:19.000000000 +0100
++++ rd.conf-sample	2016-05-20 12:13:21.153523679 +0100
+@@ -26,12 +26,12 @@
+ Database=Rivendell
+ Driver=QMYSQL3
+ 
+-[AudioStore]
+-MountSource=
+-MountType=
+-MountOptions=defaults
+-CaeHostname=
+-XportHostname=
++;[AudioStore]
++;MountSource=
++;MountType=
++;MountOptions=defaults
++;CaeHostname=
++;XportHostname=
+ 
+ [Logs]
+ ; Set the method to be used for logging.  Possible values are:

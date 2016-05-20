@@ -1,0 +1,31 @@
+--- opendb.cpp	2016-04-14 12:44:19.000000000 +0100
++++ opendb.cpp	2016-05-19 16:44:08.793158000 +0100
+@@ -240,17 +240,19 @@
+         if (check_remote_server(host)) {
+           host=format_remote_host(host);
+         }
+-	sql=QString().sprintf("insert into user set Host=\"%s\",\
+-            User=\"%s\",Password=PASSWORD(\"%s\")",
+-			      (const char *)host, (const char *)login,(const char *)pwd);
+-	q=new QSqlQuery(sql);
++        /* BUG FIX MySQL versions v5.7.12 (and possibly older) no longer use
++         * PASSWORD fields in the user table.
++         * 
++         * Should use standard create user syntax and grants instead
++         */
++	sql=QString().sprintf("create user %s@'%s' identified by '%s'",
++			      (const char *)login, (const char *)host,(const char *)pwd);
++        q=new QSqlQuery(sql);
+ 	delete q;
+ 	sql=QString().
+-	  sprintf("insert into db set Host=\"%s\",Db=\"%s\",\
+-            User=\"%s\",Select_priv=\"Y\",Insert_priv=\"Y\",Update_priv=\"Y\",\
+-            Delete_priv=\"Y\",Create_priv=\"Y\",Drop_priv=\"Y\",\
+-            Index_priv=\"Y\",Alter_priv=\"Y\",Lock_tables_priv=\"Y\"",
+-		 (const char *)host, (const char *)dbname,(const char *)login);
++	  sprintf("grant all on %s.* to %s@'%s'",
++		 (const char *)dbname, (const char *)login,(const char *)host);
++	/* END OF BUG FIX */
+ 	q=new QSqlQuery(sql);
+ 	delete q;
+ 	q=new QSqlQuery("flush privileges");

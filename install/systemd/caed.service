@@ -1,0 +1,17 @@
+[Unit]
+Description=Rivendell Radio Automation caed Service
+Requires=mysql.service
+After=mysql.service
+
+[Service]
+Type=forking
+ExecPre=/usr/local/sbin/rdcleandirs
+ExecStart=/usr/local/bin/caed
+RuntimeDirectory=rivendell
+RuntimeDirectoryMode=755
+PIDFile=/var/run/rivendell/caed.pid
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
+

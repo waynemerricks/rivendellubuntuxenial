@@ -1,0 +1,13 @@
+--- mysqld.cnf.original	2016-05-18 16:15:51.234734214 +0100
++++ mysqld.cnf	2016-05-18 16:15:42.946565639 +0100
+@@ -37,6 +37,10 @@
+ tmpdir		= /tmp
+ lc-messages-dir	= /usr/share/mysql
+ skip-external-locking
++
++#Rivendell Requires MyISAM by default
++default_storage_engine = MyISAM
++
+ #
+ # Instead of skip-networking the default is now to listen only on
+ # localhost which is more compatible and is not less secure.

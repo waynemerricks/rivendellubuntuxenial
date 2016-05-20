@@ -1,0 +1,12 @@
+--- rd-bin.conf	2016-05-18 15:17:03.136127806 +0100
++++ rd-bin.conf	2016-05-18 15:57:38.876628982 +0100
+@@ -23,8 +23,7 @@
+ <Directory "/usr/local/libexec">
+   Options ExecCGI FollowSymLinks
+   AllowOverride None
+-  Order allow,deny
+-  Allow from all
++  Require all granted
+   <Files *.gif>
+     SetHandler default-handler
+   </Files>
