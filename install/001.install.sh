@@ -64,12 +64,6 @@ if [ ! -f ./rivendell/opendb.cpp.patch ]; then
   exit 1
 fi
 
-#OPENDB.CPP MySQL group Patch
-if [ ! -f ./rivendell/opendb.cpp.mysql-group.patch ]; then
-  echo ivendell/opendb.cpp.mysql-group.patch is not found, aborting
-  exit 1
-fi
-
 #RD.CONF
 if [ ! -f ./rivendell/rd.conf-sample.patch ]; then
   echo rivendell/rd.conf-sample.patch is not found, aborting
@@ -86,6 +80,12 @@ fi
 #MYSQLD.CNF
 if [ ! -f ./mysql/mysqld.cnf.patch ]; then
   echo mysql/mysqld.cnf.patch is not found, aborting
+  exit 1
+fi
+
+#MYSQLD.CNF - group mode
+if [ ! -f ./mysql/mysqld.cnf.group-mode.patch ]; then
+  echo mysql/mysqld.cnf.group-mode.patch is not found, aborting
   exit 1
 fi
 

@@ -46,9 +46,6 @@ patch rdadmin/createdb.cpp /home/$USER/install/rivendell/createdb.cpp.patch
 #Patch the create user DB bug (Github issue #123)
 #@see https://github.com/ElvishArtisan/rivendell/issues/123
 patch rdadmin/opendb.cpp /home/$USER/install/rivendell/opendb.cpp.patch
-#Patch opendb.cpp to also set the global group by mode for mysql
-#@see http://github.com/ElvishArtisan/rivendell/issues/125
-patch rdadmin/opendb.cpp /home/$USER/install/rivendell/opendb.cpp.mysql-group.patch
 
 echo
 echo
@@ -136,6 +133,9 @@ rm -r /home/$USER/install/rivendell-2.13.0
 #MySQL Config
 #Amend MySQL to default to MyISAM (Required by Rivendell)
 patch /etc/mysql/mysql.conf.d/mysqld.cnf /home/$USER/install/mysql/mysqld.cnf.patch
+#Patch mysqld.cnf to also set the global group by mode for mysql
+#@see http://github.com/ElvishArtisan/rivendell/issues/125
+patch /etc/mysql/mysql.conf.d/mysqld.cnf /home/$USER/install/mysql/mysqld.cnf.group-mode.patch
 
 #Reload MySQL
 echo Restarting MySQL to apply changes...
