@@ -162,8 +162,17 @@ systemctl enable rdcatchd.service
 echo
 echo
 echo All Done, after reboot you have to run the following two commands:
-echo \t sudo rdalsaconfig
-echo \trdadmin
+echo -e '\t'sudo rdalsaconfig
+echo -e '\t'rdadmin
+echo
+echo You will probably get the message "Unable to start daemons"
+echo this is because caed couldn't start because the Rivendell database wasn't
+echo created.
+echo
+echo Start the rivendell services manually or reboot at this stage
+echo -e '\t'sudo service caed start
+echo -e '\t'sudo service ripcd start
+echo -e '\t'sudo service rdcatchd start
 echo
 read -p "Press [Enter] to reboot or Ctrl + C to quit"
 reboot
