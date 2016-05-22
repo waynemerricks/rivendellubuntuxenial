@@ -1,0 +1,11 @@
+--- mysqld.cnf	2016-05-20 14:40:53.723844935 +0100
++++ mysqld.cnf	2016-05-20 14:40:29.175576935 +0100
+@@ -40,6 +40,8 @@
+ 
+ #Rivendell Requires MyISAM by default
+ default_storage_engine = MyISAM
++#Rivendell needs group_by mode turned off
++sql-mode        = "STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"
+ 
+ #
+ # Instead of skip-networking the default is now to listen only on
