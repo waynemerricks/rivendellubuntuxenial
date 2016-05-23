@@ -1,0 +1,36 @@
+--- createdb.cpp	2016-05-23 13:12:20.685216159 +0100
++++ createdb.cpp	2016-05-23 13:09:37.335582159 +0100
+@@ -1241,7 +1241,6 @@
+   sql="create table if not exists RDAIRPLAY (\
+       ID int not null primary key auto_increment,\
+       STATION char(40) not null,\
+-      INSTANCE int unsigned not null,\
+       CARD0 int default 0,\
+       PORT0 int default 0,\
+       START_RML0 char(255),\
+@@ -1353,7 +1352,7 @@
+       LOG2_LOG_LINE int default -1,\
+       LOG2_NOW_CART int unsigned default 0,\
+       LOG2_NEXT_CART int unsigned default 0,\
+-      index STATION_IDX (STATION,INSTANCE))"; 
++      index STATION_IDX (STATION))";
+   if(!RunQuery(sql)) {
+     return false;
+   }
+@@ -1773,7 +1772,6 @@
+   sql="create table if not exists RDPANEL (\
+       ID int not null primary key auto_increment,\
+       STATION char(40) not null,\
+-      INSTANCE int unsigned not null,\
+       CARD2 int default 0,\
+       PORT2 int default 0,\
+       START_RML2 char(255),\
+@@ -1808,7 +1806,7 @@
+       SKIN_PATH char(255) default \"";
+   sql+=RD_DEFAULT_RDPANEL_SKIN;
+   sql+="\",\
+-      index STATION_IDX (STATION,INSTANCE))"; 
++      index STATION_IDX (STATION))"; 
+   if(!RunQuery(sql)) {
+     return false;
+   }

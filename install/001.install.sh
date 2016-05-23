@@ -58,6 +58,12 @@ if [ ! -f ./rivendell/createdb.cpp.patch ]; then
   exit 1
 fi
 
+#CREATEDB.CPP Instance Patch
+if [ ! -f ./rivendell/createdb.cpp-instance.patch ]; then
+  echo rivendell/createdb.cpp-instance.patch is not found, aborting
+  exit 1
+fi
+
 #OPENDB.CPP
 if [ ! -f ./rivendell/opendb.cpp.patch ]; then
   echo rivendell/opendb.cpp.patch is not found, aborting

@@ -43,6 +43,8 @@ echo
 #Patch the create DB bug (Github issue #121)
 #@see https://github.com/ElvishArtisan/rivendell/issues/121
 patch rdadmin/createdb.cpp /home/$USER/install/rivendell/createdb.cpp.patch
+#Patch the old INSTANCE column bug (Github issue #129)
+patch rdadmin/createdb.cpp /home/$USER/install/rivendell/createdb.cpp-instance.patch
 #Patch the create user DB bug (Github issue #123)
 #@see https://github.com/ElvishArtisan/rivendell/issues/123
 patch rdadmin/opendb.cpp /home/$USER/install/rivendell/opendb.cpp.patch
